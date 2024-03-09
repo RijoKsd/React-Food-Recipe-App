@@ -13,28 +13,30 @@
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #f4f5f7;
- }
+}
 
 h1 {
   font-size: 3rem;
   margin-bottom: 18px;
 }
 
-h2{
+h2 {
   font-size: 2rem;
   margin-bottom: 18px;
 }
 
-h3{
+h3 {
   font-size: 1.7rem;
   margin-bottom: 18px;
 }
-h4{
+
+h4 {
   font-size: 1.4rem;
   margin-bottom: 18px;
 
 }
-h5{
+
+h5 {
   font-size: 1.1 rem;
   margin-bottom: 18px;
 
@@ -45,7 +47,7 @@ p {
   line-height: 24px;
 }
 
-ul { 
+ul {
   list-style: none;
 }
 
@@ -59,13 +61,14 @@ a {
 }
 
 section {
-  padding:100px 0;
+  padding: 100px 0;
   margin: 4px 0;
 }
-.my-40{
+
+.my-40 {
   margin-top: 40px;
   margin-bottom: 40px;
- 
+
 }
 
 // reusable classes
@@ -87,21 +90,25 @@ section {
   gap: 30px;
 
 }
-.br-10{
+
+.br-10 {
   border-radius: 10px;
 }
 
 .text-center {
   text-align: center;
+  margin: auto;
+  max-width: 600px;
 }
 
 .text-white {
   color: #fff;
 }
+
 .bg-primary {
   background-color: rgb(255, 207, 91);
 }
- 
+
 
 // Hero section 
 
@@ -112,7 +119,6 @@ section {
 
   img {
     width: 100%;
-    // height: 100%;
     object-fit: cover;
   }
 
@@ -123,12 +129,6 @@ section {
     right: 300px;
     transform: translateY(-50%);
 
-    // h1,p{
-    //   text-shadow: 4px 4px 7px #4e4e4e;
-    // }
-
-
-
     p {
       font-size: 1.1rem;
     }
@@ -136,23 +136,86 @@ section {
 }
 
 //  Special Dishes
-.special-dishes{
-  &-content{
-    margin:auto; 
+.special-dishes {
+  &-content {
+    margin: auto;
     max-width: 600px;
   }
-  &-items{
+
+  &-items {
     margin-top: 60px;
-    li{
-      flex:1;
- 
-       img{
+
+    li {
+      flex: 1;
+
+      img {
         width: 200px;
-       }
-       h5{
+      }
+
+      h5 {
         margin-top: 10px;
         font-weight: 600;
-       }
+      }
     }
+  }
+}
+
+//  Filtered dishes section
+
+.filtered-dishes {
+  &-items {
+    margin-top: 30px;
+
+    li {
+      background-color: #d81221;
+      padding: 12px 30px;
+      border-radius: 30px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+
+      &:hover,
+      &.active {
+        background-color: #ffcf5b;
+        color: #000;
+      }
+    }
+  }
+
+
+ &-menu {
+    margin-top: 60px;
+
+    li {
+      flex: 1;
+
+      img {
+        width: 200px;
+      }
+
+      h5 {
+        margin-top: 10px;
+        font-weight: 600;
+      }
+    }
+  } 
+
+}
+
+.loader{
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  h1{
+    color: #fff;
   }
 }
