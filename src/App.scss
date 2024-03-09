@@ -12,14 +12,40 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: #f4f5f7;
+ }
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 18px;
+}
+
+h2{
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+h3{
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+}
+h4{
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+
+}
+h5{
+  font-size: 1.1 rem;
+  margin-bottom: 18px;
+
 }
 
 p {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
 }
 
-ul {
+ul { 
   list-style: none;
 }
 
@@ -33,7 +59,13 @@ a {
 }
 
 section {
-  margin: 80px 0;
+  padding:100px 0;
+  margin: 4px 0;
+}
+.my-40{
+  margin-top: 40px;
+  margin-bottom: 40px;
+ 
 }
 
 // reusable classes
@@ -51,9 +83,12 @@ section {
   }
 }
 
-.gap-25 {
-  gap: 25px;
+.gap-30 {
+  gap: 30px;
 
+}
+.br-10{
+  border-radius: 10px;
 }
 
 .text-center {
@@ -63,7 +98,10 @@ section {
 .text-white {
   color: #fff;
 }
-
+.bg-primary {
+  background-color: rgb(255, 207, 91);
+}
+ 
 
 // Hero section 
 
@@ -89,15 +127,32 @@ section {
     //   text-shadow: 4px 4px 7px #4e4e4e;
     // }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 18px;
-    }
+
 
     p {
       font-size: 1.1rem;
     }
   }
+}
 
-
+//  Special Dishes
+.special-dishes{
+  &-content{
+    margin:auto; 
+    max-width: 600px;
+  }
+  &-items{
+    margin-top: 60px;
+    li{
+      flex:1;
+ 
+       img{
+        width: 200px;
+       }
+       h5{
+        margin-top: 10px;
+        font-weight: 600;
+       }
+    }
+  }
 }

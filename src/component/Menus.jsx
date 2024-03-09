@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 // components
 import Hero from "./Hero";
+import SpecialDishes from "./SpecialDishes";
 
 export default function App() {
   let [menus, setMenus] = useState([]);
@@ -17,7 +18,10 @@ export default function App() {
     getAllMenus();
   }, []);
 
-  return <div>
-    <Hero />
-  </div>;
+  return (
+    <div>
+      <Hero />
+      <SpecialDishes specialMenus={menus} />
+    </div>
+  );
 }
