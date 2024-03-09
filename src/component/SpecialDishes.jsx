@@ -1,14 +1,15 @@
 export default function SpecialDishes({ specialMenus }) {
   let maxSpecialMenus = 8;
   let specialMenu = specialMenus.map((menu, key) => {
-    if (key < maxSpecialMenus) {
+    if ( key>=maxSpecialMenus ) return null;
+  
       return (
         <li key={key}>
           <img src={menu.strMealThumb} alt={menu.strMeal} className="br-10" />
           <h5>{menu.strMeal}</h5>
         </li>
       );
-    }
+  
   });
 
   return (
