@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+import { act } from "react-dom/test-utils";
 
 function FilteredDishes({ categories, allMenus }) {
     let [allMenu] = useState(allMenus);
 
     let [filteredDishes, setFilteredDishes] = useState([]);
 
+    let [active, setActive] = useState();
+
     // function to display the filtered dishes
     function showFilteredDishesHandler(categoryName) {
+        setActive(categoryName)
         let sortedDishes = allMenu
             .filter((menu) => {
                 return menu.strCategory === categoryName;
             })
             .map((item, key) => {
-
                 return (
                     <li key={key}>
                         <img src={item.strMealThumb} alt={item.strMeal} className="br-10" />
@@ -27,6 +30,7 @@ function FilteredDishes({ categories, allMenus }) {
     let category = categories.map((category, key) => {
         return (
             <li
+                className={category.strCategory === active ? "active" : ""}
                 onClick={() => {
                     showFilteredDishesHandler(category.strCategory);
                 }}
@@ -49,7 +53,9 @@ function FilteredDishes({ categories, allMenus }) {
                     <ul className="flex flex-wrap text-white flex-center">{category}</ul>
                 </div>
                 <div className="filtered-dishes-menu">
-                    <ul className="flex flex-wrap gap-30 flex-center">{filteredDishes}</ul>
+                    <ul className="flex flex-wrap gap-30 flex-center">
+                        {filteredDishes}
+                    </ul>
                 </div>
             </div>
         </section>

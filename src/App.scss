@@ -1,5 +1,5 @@
 // import google font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 // reset css
 * {
@@ -33,13 +33,11 @@ h3 {
 h4 {
   font-size: 1.4rem;
   margin-bottom: 18px;
-
 }
 
 h5 {
   font-size: 1.1 rem;
   margin-bottom: 18px;
-
 }
 
 p {
@@ -68,7 +66,6 @@ section {
 .my-40 {
   margin-top: 40px;
   margin-bottom: 40px;
-
 }
 
 // reusable classes
@@ -88,7 +85,6 @@ section {
 
 .gap-30 {
   gap: 30px;
-
 }
 
 .br-10 {
@@ -109,8 +105,7 @@ section {
   background-color: rgb(255, 207, 91);
 }
 
-
-// Hero section 
+// Hero section
 
 .hero {
   position: relative;
@@ -176,7 +171,6 @@ section {
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
-
       &:hover,
       &.active {
         background-color: #ffcf5b;
@@ -185,8 +179,7 @@ section {
     }
   }
 
-
- &-menu {
+  &-menu {
     margin-top: 60px;
 
     li {
@@ -201,13 +194,12 @@ section {
         font-weight: 600;
       }
     }
-  } 
-
+  }
 }
 
-.loader{
+.loader {
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -215,8 +207,8 @@ section {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  
-  h1{
+
+  h1 {
     color: #fff;
   }
 }
