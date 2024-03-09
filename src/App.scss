@@ -183,7 +183,7 @@ section {
     margin-top: 60px;
 
     li {
-      // flex: 1;
+      flex: 1;
 
       img {
         width: 200px;
@@ -210,5 +210,50 @@ section {
 
   h1 {
     color: #fff;
+  }
+}
+
+.alert {
+  border: 2px solid #ffcf5b;
+  border-radius: 10px;
+  height: 20vh;
+  width: 100%;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h3 {
+    color: #d81221;
+    margin: 0 0 10px 0;
+  }
+  h4 {
+    margin: 0;
+  }
+}
+
+.pagination {
+  justify-content: center;
+  margin: 50px 0 0;
+
+  li {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #d81221;
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 8px;
+    transition: all ease 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+
+    &.active,
+    &:hover {
+      background-color: #d81221;
+      color: #fff;
+    }
   }
 }
