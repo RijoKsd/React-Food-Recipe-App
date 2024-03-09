@@ -46,10 +46,10 @@ function FilteredDishes({ categories, allMenus }) {
                     <p>Discover exquisite dishes that enchant your palate.</p>
                 </div>
                 <div className="filtered-dishes-items">
-                    <ul className="flex flex-wrap text-white">{category}</ul>
+                    <ul className="flex flex-wrap text-white flex-center">{category}</ul>
                 </div>
                 <div className="filtered-dishes-menu">
-                    <ul className="flex flex-wrap gap-30">{filteredDishes}</ul>
+                    <ul className="flex flex-wrap gap-30 flex-center">{filteredDishes}</ul>
                 </div>
             </div>
         </section>
