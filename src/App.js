@@ -1,5 +1,5 @@
 import Menus from "./component/Menus";
-import "./App.css"
+import "./App.scss"
 
 function App() {
   return <div>

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+// components
+import Hero from "./Hero";
+
 export default function App() {
   let [menus, setMenus] = useState([]);
 
@@ -14,5 +17,7 @@ export default function App() {
     getAllMenus();
   }, []);
 
-  return <div></div>;
+  return <div>
+    <Hero />
+  </div>;
 }
