@@ -1,15 +1,16 @@
+import CardDish from "./CardDish";
+
 export default function SpecialDishes({ specialMenus }) {
   let maxSpecialMenus = 8;
-  let specialMenu = specialMenus.map((menu, key) => {
-    if (key >= maxSpecialMenus) return null;
+  let specialMenu = specialMenus.map((menu, index) => {
+    if (index >= maxSpecialMenus) return null;
 
     return (
-      <li key={key}>
-        <img src={menu.strMealThumb} alt={menu.strMeal} className="br-10" />
-        <h5>{menu.strMeal}</h5>
-      </li>
+      // reusable component
+      <CardDish key={menu.idMeal} menu={menu} />
     );
   });
+   
 
   return (
     <section className="special-dishes bg-primary">
@@ -21,8 +22,7 @@ export default function SpecialDishes({ specialMenus }) {
             authentic cuisine.
           </p>
         </div>
-        <div className="special-dishes-items">
-          {/* special menus goes here */}
+        <div className="special-dishes-items"  >
           <ul className="flex flex-wrap gap-30 flex-center">{specialMenu}</ul>
         </div>
       </div>

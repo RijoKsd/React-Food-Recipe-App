@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
+import CardDish from "./CardDish";
 
 function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
   //   console.log("setSingleDish", setSingleDish);
@@ -44,12 +45,9 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
       .filter((menu) => {
         return menu.strCategory === categoryName;
       })
-      .map((item, key) => {
+      .map((menu) => {
         return (
-          <li key={key}>
-            <img src={item.strMealThumb} alt={item.strMeal} className="br-10" />
-            <h5>{item.strMeal}</h5>
-          </li>
+          <CardDish key={menu.idMeal}  menu = {menu}/>
         );
       });
     setFilteredDishes(sortedDishes);
@@ -83,20 +81,6 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
         </div>
         <div className="filtered-dishes-menu">
           <ul className="flex flex-wrap gap-30 flex-center">
-            {/* {singleDishItem} */}
-            {/* {singleDishItem || filteredDishes.length !== 0 ? (
-            //   filteredDishes
-            <>
-            {singleDishItem}
-            {filteredDishes}
-          </>
-            ) : (
-              <div className="alert">
-                <h3>Sorry, no dishes found</h3>
-                <h4>Try another category</h4>
-              </div>
-            )} */}
-
             {!singleDishItem.length && !filteredDishes.length ? (
               <div className="alert">
                 <h3>Sorry, no dishes found</h3>
