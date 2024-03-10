@@ -14,7 +14,7 @@ export default function App() {
   let [categories, setCategories] = useState([]);
   // state to hold the loading state of the data
   let [loading, setLoading] = useState(false);
-
+  // state to hold the data from the API and display it in our filtered section
   let [singleDish, setSingleDish] = useState([]);
 
   // fetch data from the API to display in our special section

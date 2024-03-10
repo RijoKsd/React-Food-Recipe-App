@@ -28,7 +28,9 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
   let currentItems = filteredDishes.slice(indexOfFirstItem, indexOfLastItem); // total 4 items at a time
 
   // function to display single dish
+  let maxItem = 4;
   let singleDishItem = singleDish.map((item, key) => {
+    if (key >= maxItem) return null;
     return (
       <li key={key}>
         <img src={item.strMealThumb} alt={item.strMeal} className="br-10" />
