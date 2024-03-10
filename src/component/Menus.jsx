@@ -5,6 +5,7 @@ import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
 import Loader from "./Loader";
+import Header from "./Header";
 
 export default function App() {
   // state to hold the data from the API and display it in our special section
@@ -53,6 +54,7 @@ export default function App() {
 
   return (
     <div>
+      <Header />
       <Hero />
 
       {!loading ? <SpecialDishes specialMenus={menus} /> : <Loader />}

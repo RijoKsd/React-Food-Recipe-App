@@ -51,6 +51,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 .container {
@@ -81,6 +82,9 @@ section {
     justify-content: center;
     align-items: center;
   }
+  &.flex-between {
+    justify-content: space-between;
+  }
 }
 
 .gap-30 {
@@ -105,9 +109,51 @@ section {
   background-color: rgb(255, 207, 91);
 }
 
+// Header
+
+header {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 80px;
+    background-color: #d81221;
+    padding: 10px 20px;
+    color: #ffcf5b;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  nav {
+    ul {
+      justify-content: space-between;
+      li {
+        margin-right: 100px;
+      }
+      a {
+        font-size: 1.3rem;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: #ffcf5b;
+        }
+      }
+    }
+  }
+}
+
 // Hero section
 
 .hero {
+  margin-top: 20px;
   position: relative;
   height: 65vh;
   overflow: hidden;
