@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
 
+/*
+ categories={categories} singleDish={singleDish} setSingleDish={setSingleDish}
+*/
 import { AllMenuContext } from "./AllMenuContext";
 
-function FilteredDishes({ categories, singleDish, setSingleDish }) {
-
-
+function FilteredDishes() {
+  let [categories, setCategories] = useState([]);
+  let [singleDish, setSingleDish] = useState([]);
   let allMenus = useContext(AllMenuContext);
-
   let [allMenu] = useState(allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
   let [active, setActive] = useState("Beef");
@@ -21,6 +23,29 @@ function FilteredDishes({ categories, singleDish, setSingleDish }) {
   let [showPopUp, setShowPopUp] = useState(false);
   // This value is coming from the CardDish component
   let [currentDish, setCurrentDish] = useState("");
+
+  // fetch data from the API to display in our filtered section
+  async function getAllTheCategories() {
+    let response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/categories.php`
+    );
+    let categoryData = await response.json();
+    setCategories(categoryData.categories);
+  }
+
+  async function getOnlyOneDish() {
+    let response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef`
+    );
+    let singleDishData = await response.json();
+    setSingleDish(singleDishData.meals);
+  }
+
+  useEffect(() => {
+    // call the functions to fetch the data from the API
+    getAllTheCategories();
+    getOnlyOneDish();
+  }, []);
 
   function showPopupHandler(dishName) {
     setShowPopUp(true);
