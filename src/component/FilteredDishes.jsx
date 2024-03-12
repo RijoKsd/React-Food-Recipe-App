@@ -3,10 +3,10 @@ import Pagination from "./Pagination";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
 
-import { AllMenuContext } from "./Menus";
+import { AllMenuContext } from "./AllMenuContext";
 
 function FilteredDishes({ categories, singleDish, setSingleDish }) {
-  //   console.log("setSingleDish", setSingleDish);
+
 
   let allMenus = useContext(AllMenuContext);
 

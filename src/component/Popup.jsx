@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AllMenuContext } from "./Menus";
+import { AllMenuContext } from "./AllMenuContext";
 
 function Popup({ closePopupHandler, currentDish }) {
   let allMenus = useContext(AllMenuContext);

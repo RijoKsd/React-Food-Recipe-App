@@ -3,7 +3,7 @@ import CardDish from "./CardDish";
 import Popup from "./Popup";
 
 // context
-import { AllMenuContext } from "./Menus";
+import { AllMenuContext } from "./AllMenuContext";
 
 export default function SpecialDishes() {
   

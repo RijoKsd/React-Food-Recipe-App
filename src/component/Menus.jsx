@@ -1,36 +1,17 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect } from "react";
 
 // components
+import Header from "./Header";
 import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
-import Loader from "./Loader";
-import Header from "./Header";
+import {AllMenus} from "./AllMenuContext";
 
-// useContext
-
-export const AllMenuContext = createContext();
 
 export default function App() {
-  // state to hold the data from the API and display it in our special section
-  let [menus, setMenus] = useState([]);
-  // state to hold the data from the API and display it in our filtered section
-  let [categories, setCategories] = useState([]);
-  // state to hold the loading state of the data
-  let [loading, setLoading] = useState(false);
-  // state to hold the data from the API and display it in our filtered section
-  let [singleDish, setSingleDish] = useState([]);
 
-  // fetch data from the API to display in our special section
-  async function getAllMenus() {
-    setLoading(true);
-    let response = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?f=c`
-    );
-    let data = await response.json();
-    setMenus(data.meals);
-    setLoading(false);
-  }
+  let [categories, setCategories] = useState([]);
+  let [singleDish, setSingleDish] = useState([]);
 
   // fetch data from the API to display in our filtered section
   async function getAllTheCategories() {
@@ -51,7 +32,6 @@ export default function App() {
 
   useEffect(() => {
     // call the functions to fetch the data from the API
-    getAllMenus();
     getAllTheCategories();
     getOnlyOneDish();
   }, []);
@@ -60,18 +40,14 @@ export default function App() {
     <div>
       <Header />
       <Hero />
-
-      <AllMenuContext.Provider value={menus}>
-        {!loading ? <SpecialDishes /> : <Loader />}
-
-        {!loading ? (
-          <FilteredDishes
-            categories={categories}
-            singleDish={singleDish}
-            setSingleDish={setSingleDish}
-          />
-        ) : null}
-      </AllMenuContext.Provider>
+      <AllMenus>
+        <SpecialDishes />
+        <FilteredDishes
+          categories={categories}
+          singleDish={singleDish}
+          setSingleDish={setSingleDish}
+        />
+      </AllMenus>
     </div>
   );
 }
