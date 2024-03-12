@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 
 // components
 import Hero from "./Hero";
@@ -6,6 +6,10 @@ import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
 import Loader from "./Loader";
 import Header from "./Header";
+
+// useContext
+
+export const AllMenuContext = createContext();
 
 export default function App() {
   // state to hold the data from the API and display it in our special section
@@ -57,16 +61,17 @@ export default function App() {
       <Header />
       <Hero />
 
-      {!loading ? <SpecialDishes specialMenus={menus} /> : <Loader />}
+      <AllMenuContext.Provider value={menus}>
+        {!loading ? <SpecialDishes /> : <Loader />}
 
-      {!loading ? (
-        <FilteredDishes
-          categories={categories}
-          allMenus={menus}
-          singleDish={singleDish}
-          setSingleDish={setSingleDish}
-        />
-      ) : null}
+        {!loading ? (
+          <FilteredDishes
+            categories={categories}
+            singleDish={singleDish}
+            setSingleDish={setSingleDish}
+          />
+        ) : null}
+      </AllMenuContext.Provider>
     </div>
   );
 }

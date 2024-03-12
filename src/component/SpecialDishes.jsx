@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
 
-export default function SpecialDishes({ specialMenus }) {
+// context
+import { AllMenuContext } from "./Menus";
+
+export default function SpecialDishes() {
+  
+  // global context
+  let allMenus = useContext(AllMenuContext);
+
   let [showPopUp, setShowPopUp] = useState(false);
   // This value is coming from the CardDish component
   let [currentDish, setCurrentDish] = useState("");
@@ -20,7 +27,7 @@ export default function SpecialDishes({ specialMenus }) {
   }
 
   let maxSpecialMenus = 8;
-  let specialMenu = specialMenus.map((menu, index) => {
+  let specialMenu = allMenus.map((menu, index) => {
     if (index >= maxSpecialMenus) return null;
 
     return (
@@ -39,7 +46,7 @@ export default function SpecialDishes({ specialMenus }) {
         <Popup
           closePopupHandler={closePopupHandler}
           currentDish={currentDish}
-          allDishes = {specialMenus}
+        
         />
       )}
       <div className="container ">

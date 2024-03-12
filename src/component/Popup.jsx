@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AllMenuContext } from "./Menus";
 
-function Popup({ closePopupHandler, currentDish, allDishes }) {
-  let dishDetails = allDishes
+function Popup({ closePopupHandler, currentDish }) {
+  let allMenus = useContext(AllMenuContext);
+  let dishDetails = allMenus
     .filter((menuItem) => {
       return menuItem.strMeal === currentDish;
     })

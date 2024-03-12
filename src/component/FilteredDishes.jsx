@@ -1,15 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Pagination from "./Pagination";
 import CardDish from "./CardDish";
+import Popup from "./Popup";
 
-function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
+import { AllMenuContext } from "./Menus";
+
+function FilteredDishes({ categories, singleDish, setSingleDish }) {
   //   console.log("setSingleDish", setSingleDish);
+
+  let allMenus = useContext(AllMenuContext);
+
   let [allMenu] = useState(allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
   let [active, setActive] = useState("Beef");
   // For pagination
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(4);
+
+  // For showing popup
+  let [showPopUp, setShowPopUp] = useState(false);
+  // This value is coming from the CardDish component
+  let [currentDish, setCurrentDish] = useState("");
+
+  function showPopupHandler(dishName) {
+    setShowPopUp(true);
+    setCurrentDish(dishName);
+  }
+
+  //  function to close the popup
+  function closePopupHandler() {
+    setShowPopUp(false);
+  }
 
   let indexOfLastItem = currentPage * itemsPerPage;
 
@@ -49,7 +70,11 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
       })
       .map((menu) => {
         return (
-          <CardDish key={menu.idMeal}  menu = {menu}/>
+          <CardDish
+            key={menu.idMeal}
+            menu={menu}
+            showPopupHandler={showPopupHandler}
+          />
         );
       });
     setFilteredDishes(sortedDishes);
@@ -73,6 +98,13 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
 
   return (
     <section className="filtered-dishes">
+      {showPopUp && (
+        <Popup
+          closePopupHandler={closePopupHandler}
+          currentDish={currentDish}
+          allDishes={allMenu}
+        />
+      )}
       <div className="container">
         <div className="filtered-dishes-content text-center">
           <h2>Choose your dishes</h2>
@@ -99,8 +131,7 @@ function FilteredDishes({ categories, allMenus, singleDish, setSingleDish }) {
         <Pagination
           filteredDishes={filteredDishes}
           itemsPerPage={itemsPerPage}
-          setCurrentPage = {setCurrentPage}
-         
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </section>
