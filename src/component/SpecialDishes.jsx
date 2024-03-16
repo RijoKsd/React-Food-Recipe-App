@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
-
+import AddToCart from "./AddToCart";
 // context
 import { AllMenuContext } from "./AllMenuContext";
 
 export default function SpecialDishes() {
-  
   // global context
   let allMenus = useContext(AllMenuContext);
-
   let [showPopUp, setShowPopUp] = useState(false);
   // This value is coming from the CardDish component
   let [currentDish, setCurrentDish] = useState("");
+
+  let [addToCardItem, setAddToCardItem] = useState([]);
 
   //  function to show the popup
   function showPopupHandler(dishName) {
@@ -26,6 +26,16 @@ export default function SpecialDishes() {
     setShowPopUp(false);
   }
 
+  // add to cart handler
+
+  function addToCartHandler(addToCartImg, addToCartTitle, addToCartId) {
+    let newItemInAddToCart =  { addToCartTitle, addToCartId, addToCartImg } 
+
+    setAddToCardItem((prevValuesInCart)=> [...prevValuesInCart,newItemInAddToCart])
+  }
+
+
+  
   let maxSpecialMenus = 8;
   let specialMenu = allMenus.map((menu, index) => {
     if (index >= maxSpecialMenus) return null;
@@ -46,10 +56,11 @@ export default function SpecialDishes() {
         <Popup
           closePopupHandler={closePopupHandler}
           currentDish={currentDish}
-        
+          addToCartHandler={addToCartHandler}
         />
       )}
       <div className="container ">
+        <AddToCart  addToCardItem = {addToCardItem}/>
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
           <p>

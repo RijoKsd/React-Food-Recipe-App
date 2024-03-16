@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AllMenuContext } from "./AllMenuContext";
 
-function Popup({ closePopupHandler, currentDish }) {
+function Popup({ closePopupHandler, currentDish, addToCartHandler }) {
   let allMenus = useContext(AllMenuContext);
   let dishDetails = allMenus
     .filter((menuItem) => {
@@ -23,6 +23,18 @@ function Popup({ closePopupHandler, currentDish }) {
             <li> {item.strIngredient3}</li>
             <li> {item.strIngredient4}</li>
           </ul>
+
+          <button
+            className="cta-btn"
+            onClick={() => {
+              addToCartHandler(item.strMealThumb, item.strMeal, item.idMeal);
+            }}
+          >
+            Order Now
+          </button>
+          <h5 className="popup-content-close" onClick={closePopupHandler}>
+            Close
+          </h5>
         </div>
       );
     });
@@ -32,10 +44,6 @@ function Popup({ closePopupHandler, currentDish }) {
         {dishDetails}
 
         {/* <h5 className="text-white dish-price">Price: $10</h5> */}
-        <button className="cta-btn">Order Now </button>
-        <h5 className="popup-content-close" onClick={closePopupHandler}>
-          Close
-        </h5>
       </div>
     </div>
   );
