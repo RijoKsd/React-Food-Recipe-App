@@ -69,7 +69,7 @@ export default function SpecialDishes() {
           </p>
         </div>
         <div className="special-dishes-items">
-          <ul className="flex flex-wrap gap-30 flex-center">{specialMenu}</ul>
+          <ul className="special-dishes-list">{specialMenu}</ul>
         </div>
       </div>
     </section>

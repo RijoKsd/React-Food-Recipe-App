@@ -139,7 +139,7 @@ function FilteredDishes() {
           <ul className="flex flex-wrap text-white flex-center">{category}</ul>
         </div>
         <div className="filtered-dishes-menu">
-          <ul className="flex flex-wrap gap-30 flex-center">
+          <ul className=" ">
             {!singleDishItem.length && !filteredDishes.length ? (
               <div className="alert">
                 <h3>Sorry, no dishes found</h3>

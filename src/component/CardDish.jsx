@@ -3,7 +3,7 @@ import React from "react";
 function CardDish({ menu, showPopupHandler}) {
 
   return (
-    <li>
+    <li className="cart-item">
       <button onClick={()=>{
         showPopupHandler(menu.strMeal);
       }}>

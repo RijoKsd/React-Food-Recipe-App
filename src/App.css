@@ -171,10 +171,26 @@ header nav ul a:hover {
 .special-dishes-items {
   margin-top: 60px;
 }
-.special-dishes-items li img {
-  width: 200px;
+.special-dishes-items .special-dishes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
-.special-dishes-items li h5 {
+.special-dishes-items .special-dishes-list li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.special-dishes-items .special-dishes-list li button {
+  background-color: transparent;
+}
+.special-dishes-items .special-dishes-list li img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.special-dishes-items .special-dishes-list li h5 {
   margin-top: 10px;
   font-weight: 600;
 }
@@ -199,13 +215,24 @@ header nav ul a:hover {
 .filtered-dishes-menu {
   margin-top: 60px;
 }
-.filtered-dishes-menu li {
-  flex: 1;
+.filtered-dishes-menu ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
-.filtered-dishes-menu li img {
-  width: 200px;
+.filtered-dishes-menu ul li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
-.filtered-dishes-menu li h5 {
+.filtered-dishes-menu ul li img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.filtered-dishes-menu ul li h5 {
   margin-top: 10px;
   font-weight: 600;
 }
