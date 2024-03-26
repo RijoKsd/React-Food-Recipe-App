@@ -29,8 +29,7 @@ function Popup({ closePopupHandler, currentDish, addToCartHandler }) {
           <button
             className="cta-btn"
             onClick={() => {
-              // addToCartHandler(item.strMealThumb, item.strMeal, item.idMeal);
-              dispatch({
+               dispatch({
                 type: "add_to_cart",
                 payload: {
                   title: item.strMeal,

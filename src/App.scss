@@ -466,3 +466,41 @@ header {
     }
   }
 }
+
+
+// checkout
+
+.checkout-wrapper{
+  margin-top: 10px;
+  padding: 85px 0;
+  background-color: #302b31;
+   h2{
+    padding:20px;
+    color: #fff;
+  }
+
+  .checkout-items{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    .checkout-item{
+      background-color: rgb(255, 255, 255);
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      h6{
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+  
+    }
+  }
+ 
+}

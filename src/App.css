@@ -400,4 +400,36 @@ header nav ul a:hover {
   height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.checkout-wrapper {
+  margin-top: 10px;
+  padding: 85px 0;
+  background-color: #302b31;
+}
+.checkout-wrapper h2 {
+  padding: 20px;
+  color: #fff;
+}
+.checkout-wrapper .checkout-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.checkout-wrapper .checkout-items .checkout-item {
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.checkout-wrapper .checkout-items .checkout-item img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.checkout-wrapper .checkout-items .checkout-item h6 {
+  font-size: 1.2rem;
+  margin-top: 10px;
 }/*# sourceMappingURL=App.css.map */

@@ -3,12 +3,9 @@ import { useContext } from "react"
 const Checkout = ()=>{
  
     const  {cartItems} = useContext(StateContext);
-
- 
-  
     let cartItemsAre = cartItems.map((item,index) => {
       return (
-        <div className="add-to-cart-item" key={ index}>
+        <div className="checkout-item" key={ index}>
           <img src={item.img} alt={item.addToCartId} />
           <h6>{item.title} </h6>
         </div>
@@ -16,11 +13,10 @@ const Checkout = ()=>{
     });
     return(
         <div className="checkout-wrapper">
-       
-        <div className="checkout-item">
+          <h2 className="text-center ">Checkout</h2>
+          <div className="checkout-items">
          {cartItemsAre}
-         
-        </div>
+          </div>
       </div> 
     )
 }

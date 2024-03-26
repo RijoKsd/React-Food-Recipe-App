@@ -16,16 +16,7 @@ function FilteredDishes() {
   // For pagination
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(4);
-  // let [addToCardItem, setAddToCardItem] = useState([]);
-
-  // add to cart handler
-
-  // function addToCartHandler(addToCartImg, addToCartTitle, addToCartId) {
-  //   let newItemInAddToCart =  { addToCartTitle, addToCartId, addToCartImg }
-
-  //   setAddToCardItem((prevValuesInCart)=> [...prevValuesInCart,newItemInAddToCart])
-  // }
-
+ 
   // For showing popup
   let [showPopUp, setShowPopUp] = useState(false);
   // This value is coming from the CardDish component
