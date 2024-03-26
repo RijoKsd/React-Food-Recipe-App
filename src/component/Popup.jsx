@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AllMenuContext } from "./AllMenuContext";
+import { DispatchContext } from "../context/AppProvider";
 
 function Popup({ closePopupHandler, currentDish, addToCartHandler }) {
   let allMenus = useContext(AllMenuContext);
+  let dispatch = useContext(DispatchContext);
   let dishDetails = allMenus
     .filter((menuItem) => {
       return menuItem.strMeal === currentDish;
@@ -27,7 +29,14 @@ function Popup({ closePopupHandler, currentDish, addToCartHandler }) {
           <button
             className="cta-btn"
             onClick={() => {
-              addToCartHandler(item.strMealThumb, item.strMeal, item.idMeal);
+              // addToCartHandler(item.strMealThumb, item.strMeal, item.idMeal);
+              dispatch({
+                type: "add_to_cart",
+                payload: {
+                  title: item.strMeal,
+                  img: item.strMealThumb,
+                },
+              });
             }}
           >
             Order Now

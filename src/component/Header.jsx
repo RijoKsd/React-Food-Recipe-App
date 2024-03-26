@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,10 +9,10 @@ function Header() {
       <nav>
         <ul className="flex">
           <li>
-            <a href="#home">Home</a>
+            <Link  to="/">Home</Link>
           </li>
           <li>
-            <a href="#checkout">Checkout</a>
+            <Link  to="/checkout">Checkout</Link>
           </li>
         </ul>
       </nav>

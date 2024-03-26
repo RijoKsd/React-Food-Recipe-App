@@ -4,7 +4,7 @@ import CardDish from "./CardDish";
 import Popup from "./Popup";
 
 import { AllMenuContext } from "./AllMenuContext";
-import AddToCart from "./AddToCart";
+// import AddToCart from "./AddToCart";
 
 function FilteredDishes() {
   let [categories, setCategories] = useState([]);
@@ -16,18 +16,16 @@ function FilteredDishes() {
   // For pagination
   let [currentPage, setCurrentPage] = useState(1);
   let [itemsPerPage] = useState(4);
-  let [addToCardItem, setAddToCardItem] = useState([]);
+  // let [addToCardItem, setAddToCardItem] = useState([]);
 
+  // add to cart handler
 
+  // function addToCartHandler(addToCartImg, addToCartTitle, addToCartId) {
+  //   let newItemInAddToCart =  { addToCartTitle, addToCartId, addToCartImg }
 
-    // add to cart handler
+  //   setAddToCardItem((prevValuesInCart)=> [...prevValuesInCart,newItemInAddToCart])
+  // }
 
-    function addToCartHandler(addToCartImg, addToCartTitle, addToCartId) {
-      let newItemInAddToCart =  { addToCartTitle, addToCartId, addToCartImg } 
-  
-      setAddToCardItem((prevValuesInCart)=> [...prevValuesInCart,newItemInAddToCart])
-    }
-  
   // For showing popup
   let [showPopUp, setShowPopUp] = useState(false);
   // This value is coming from the CardDish component
@@ -132,13 +130,13 @@ function FilteredDishes() {
 
   return (
     <section className="filtered-dishes">
-      < AddToCart addToCardItem={addToCardItem}/>
+      {/* < AddToCart addToCardItem={addToCardItem}/> */}
       {showPopUp && (
         <Popup
           closePopupHandler={closePopupHandler}
           currentDish={currentDish}
           allDishes={allMenu}
-          addToCartHandler={addToCartHandler}
+          // addToCartHandler={addToCartHandler}
         />
       )}
       <div className="container">
